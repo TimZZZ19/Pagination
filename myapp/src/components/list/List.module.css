@@ -1,0 +1,9 @@
+.list {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.item {
+  font-size: 2rem;
+  line-height: 2;
+}

@@ -1,0 +1,9 @@
+.page-number-btn {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.page-number-btn--active {
+  color: #ff6347;
+}
