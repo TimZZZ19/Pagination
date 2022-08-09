@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  padding: 4rem;
+}
+
+.pagination {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.pagination-btn {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.prev-btn {
+  margin-right: 1rem;
+}
+
+.next-btn {
+  margin-left: 1rem;
+}
+
+.page-number-btn {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.page-number-btn--active {
+  color: #ff6347;
+}
+
+.page-capacity-options {
+  margin-left: 2rem;
+}
+
+.list {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.item {
+  font-size: 2rem;
+  line-height: 2;
+}
