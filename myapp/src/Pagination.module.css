@@ -7,6 +7,7 @@
 .pagination-btn {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  cursor: pointer;
 }
 
 .prev-btn {
@@ -20,6 +21,7 @@
 .page-number-btn {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  cursor: pointer;
 }
 
 .page-number-btn--active {
