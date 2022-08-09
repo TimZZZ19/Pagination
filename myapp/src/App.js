@@ -1,6 +1,7 @@
 import axios from "axios";
 import styles from "./App.module.css";
 import { useState, useEffect } from "react";
+import Pagination from "./Pagination";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -15,52 +16,27 @@ function App() {
     });
   }, [url]);
 
-  const pageNumbers = [
-    ...Array(Math.ceil(todos.length / pageCapacity + 1)).keys(),
-  ].slice(1);
+  const endIdx = pageCapacity * currentPageNumber;
+  const startIdx = endIdx - pageCapacity;
 
-  const pageNumberBtns = pageNumbers.map((number) => (
-    <span
-      className={`${styles["page-number-btn"]} ${
-        number === currentPageNumber && styles["page-number-btn--active"]
-      }`}
-      key={number}
-    >
-      {number}
-    </span>
-  ));
+  const currentList = todos.slice(startIdx, endIdx);
 
-  const list = todos.map((todo) => (
+  const list = currentList.map((todo) => (
     <div className={styles.item} key={todo.id}>
       <span>{todo.id}.&nbsp;</span>
       <span>{todo.title}</span>
     </div>
   ));
 
-  const changeHandler = (e) => {
-    setPageCapacity(e.target.value);
-  };
-
   return (
     <div className={styles.App}>
-      <div className={styles.pagination}>
-        <button className={`${styles["pagination-btn"]} ${styles["prev-btn"]}`}>
-          prev
-        </button>
-        {pageNumberBtns}
-        <button className={`${styles["pagination-btn"]} ${styles["next-btn"]}`}>
-          next
-        </button>
-        <select
-          onChange={changeHandler}
-          className={styles["page-capacity-options"]}
-        >
-          <option>10</option>
-          <option>20</option>
-          <option>50</option>
-          <option>100</option>
-        </select>
-      </div>
+      <Pagination
+        todos={todos}
+        currentPageNumber={currentPageNumber}
+        pageCapacity={pageCapacity}
+        setPageCapacity={setPageCapacity}
+        setCurrentPageNumber={setCurrentPageNumber}
+      />
       <div className={styles.list}>{list}</div>
     </div>
   );
